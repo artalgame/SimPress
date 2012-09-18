@@ -29,7 +29,7 @@ namespace SimPressUnitTests
         [TestMethod]
         public void CanAddNewUserToRepository()
         {
-            using (DBRepository repo = new DBRepository(GetDBContext()))
+            using (var repo = new DBRepository(GetDBContext()))
             {
                 repo.CreateUser(new User
                 {
@@ -45,7 +45,7 @@ namespace SimPressUnitTests
                 });
                 repo.SaveChanges();
             }
-            using (DBRepository repo = new DBRepository(GetDBContext()))
+            using (var repo = new DBRepository(GetDBContext()))
             {
                 try
                 {
@@ -64,7 +64,7 @@ namespace SimPressUnitTests
         [TestMethod]
         public void CanUpdateUserFromRepository()
         {
-            using (DBRepository repo = new DBRepository(GetDBContext()))
+            using (var repo = new DBRepository(GetDBContext()))
             {
                 if (repo.Users != null)
                 {
@@ -72,7 +72,7 @@ namespace SimPressUnitTests
                     updateUser.Info = "someInfo";
                     updateUser.Login = "newLogin";
                     updateUser.Email = "no email";
-                    
+
                     repo.UpdateUser(updateUser);
                     repo.SaveChanges();
 
@@ -88,7 +88,7 @@ namespace SimPressUnitTests
         [TestMethod]
         public void CanDeleteUserFromRepository()
         {
-            using (DBRepository repo = new DBRepository(GetDBContext()))
+            using (var repo = new DBRepository(GetDBContext()))
             {
                 if (repo.Users != null)
                 {
@@ -99,9 +99,36 @@ namespace SimPressUnitTests
                     User testUser = repo.Users.FirstOrDefault(x => x.UserId == user.UserId);
                     Assert.IsNull(testUser);
                 }
+                else
+                {
+                    Assert.Fail("No Users in Repository");
+                }
+            }
+        }
+        [TestMethod]
+        public void CanCreatePresentationFromRepositoryAndHaveAccessFromUser()
+        {
+            using (var repo = new DBRepository(GetDBContext()))
+            {
+                if (repo.Users != null)
+                {
+                    User user = repo.Users.ToArray()[0];
+                    repo.CreatePresentation(new Presentation { CreateDate = DateTime.Now, Description = "Simple Presentation", Name = "Presentation", User = user, PresentationId = Guid.NewGuid() });
+                    repo.SaveChanges();
+
+                    Presentation presentation = repo.Presentations.FirstOrDefault(x => x.Name == "Presentation");
+
+                    Assert.IsNotNull(presentation);
+                    Assert.AreEqual(presentation.User.UserId, user.UserId);
+                    Assert.AreEqual(presentation.Description, "Simple Presentation");
+                }
+                else
+                {
+                    Assert.Fail("No Users in Repository");
+                }
             }
         }
 
-        
+
     }
 }
