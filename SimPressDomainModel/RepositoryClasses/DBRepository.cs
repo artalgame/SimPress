@@ -93,17 +93,25 @@ namespace SimPressDomainModel.RepositoryClasses
 
         public void CreateComment(Comment comment)
         {
-            throw new NotImplementedException();
+            dbContext.Comments.Add(comment);
         }
 
         public void UpdateComment(Comment comment)
         {
-            throw new NotImplementedException();
+            Comment existComment = dbContext.Comments.FirstOrDefault(x=>x.CommentId == comment.CommentId);
+            if (existComment == null)
+            {
+                dbContext.Comments.Add(comment);
+            }
+            else
+            {
+                dbContext.Entry(comment).State = System.Data.EntityState.Modified;
+            }
         }
 
         public void DeleteComment(Comment comment)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();   
         }
 
         public void CreatePresentation(Presentation presentation)
