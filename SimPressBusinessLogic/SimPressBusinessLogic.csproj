@@ -51,8 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RegistrationActions.cs" />
+    <Compile Include="UsersActions\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticClasses\ApplicationSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimPressDomainModel\SimPressDomainModel.csproj">
