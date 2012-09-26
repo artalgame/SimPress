@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\EmailStates.cs" />
+    <Compile Include="Enums\LoginStates.cs" />
+    <Compile Include="Enums\PasswordStates.cs" />
     <Compile Include="UsersActions\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticClasses\ApplicationSettings.cs" />
