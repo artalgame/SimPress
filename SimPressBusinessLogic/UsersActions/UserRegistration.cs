@@ -98,7 +98,7 @@ namespace SimPressBusinessLogic
 
         public bool IsConfirmPasswordMatched(string password, string confirmPassword)
         {
-            if (password == confirmPassword)
+            if (PasswordActions.PasswordsAreEqual(password,confirmPassword))
             {
                 return true;
             }
@@ -127,7 +127,7 @@ namespace SimPressBusinessLogic
         }
         public bool IsEmailCorrected(string email)
         {
-            if(Regex.IsMatch(email,ApplicationSettings.EMAIL_REGEX)
+            if(Regex.IsMatch(email,ApplicationSettings.EMAIL_REGEX))
             {
                 return true;
             }
@@ -168,23 +168,7 @@ namespace SimPressBusinessLogic
                 }
         }
 
-        public string GenerateSalt()
-        {
-            var random = new Random();
-            int size = random.Next(10, 30);
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] buff = new byte[size];
-            rng.GetBytes(buff);
-            return Convert.ToBase64String(buff);
-        }
 
-        public string GetHashForPassword(string password, string salt)
-        {
-            HashAlgorithm hashGenerator = new SHA256Managed();
-            byte[] passwordWithSaltBytes = Convert.FromBase64String(password + salt);
-            var hash = hashGenerator.ComputeHash(passwordWithSaltBytes);
-            return Convert.ToBase64String(hash);
-        }
 
         public void TryRegistrateUser(PreRegistrateUser user)
         {
@@ -223,7 +207,7 @@ namespace SimPressBusinessLogic
 
         private void RegistrateUser(PreRegistrateUser user)
         {
-            string salt = GenerateSalt();
+            string salt = PasswordActions.GenerateSalt();
             //create user
             var regUser = new User
             {
@@ -232,7 +216,7 @@ namespace SimPressBusinessLogic
                 Info = CorrectInfo(user.Info),
                 IsApproved = true,
                 Login = user.Login,
-                PasswordHash = GetHashForPassword(user.Password, salt),
+                PasswordHash = PasswordActions.GetHashForPassword(user.Password, salt),
                 PasswordSalt = salt,
                 Role = Roles.SimpleUser.ToString(),
                 UserId = Guid.NewGuid()
