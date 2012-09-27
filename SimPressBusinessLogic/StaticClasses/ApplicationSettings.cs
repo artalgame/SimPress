@@ -20,6 +20,7 @@ namespace SimPressBusinessLogic.StaticClasses
         public static readonly string LOGIN_REGEX = @"^[A-Za-z0-9]{3,30}$";
         public static readonly string PASSWORD_REGEX = @"^((?=.*\d)(?=.*[A-Za-z])\w{6,30})$";
         public static readonly string EMAIL_REGEX = @"^(?=.*\d)(?=.*[a-zA-Z]).{6,24}$";
+        public static readonly int    USER_INFO_MAX_LENGTH = 300;
 
         //to do
         public static CultureInfo ApplicationCulture { get; set; }
