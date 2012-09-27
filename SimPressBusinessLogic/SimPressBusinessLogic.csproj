@@ -51,15 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\AuthentificationStates.cs" />
-    <Compile Include="Enums\EmailStates.cs" />
-    <Compile Include="Enums\LoginStates.cs" />
-    <Compile Include="Enums\PasswordStates.cs" />
-    <Compile Include="Enums\RegistrationState.cs" />
-    <Compile Include="Enums\TypeOfAuthentificatedLogin.cs" />
+    <Compile Include="Enums\PresentationEnums\SavePresentationStates.cs" />
+    <Compile Include="Enums\UserEnums\AuthentificationStates.cs" />
+    <Compile Include="Enums\UserEnums\EmailStates.cs" />
+    <Compile Include="Enums\UserEnums\LoginStates.cs" />
+    <Compile Include="Enums\UserEnums\PasswordStates.cs" />
+    <Compile Include="Enums\UserEnums\RegistrationState.cs" />
+    <Compile Include="Enums\UserEnums\TypeOfAuthentificatedLogin.cs" />
+    <Compile Include="PresentationClasses\PresentationBuilder.cs" />
     <Compile Include="StaticClasses\PasswordActions.cs" />
-    <Compile Include="UsersActions\UserAuthentification.cs" />
-    <Compile Include="UsersActions\UserRegistration.cs" />
+    <Compile Include="StaticClasses\UserActions.cs" />
+    <Compile Include="UsersClases\UserAuthentification.cs" />
+    <Compile Include="UsersClases\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticClasses\ApplicationSettings.cs" />
   </ItemGroup>
@@ -72,6 +75,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -48,12 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EFDbContext\SimPressEFDBContext.cs" />
-    <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Like.cs" />
+    <Compile Include="Entities\DataBaseEntities\Comment.cs" />
+    <Compile Include="Entities\DataBaseEntities\Like.cs" />
     <Compile Include="Entities\PreRegistrateUser.cs" />
-    <Compile Include="Entities\Presentation.cs" />
-    <Compile Include="Entities\Roles.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\DataBaseEntities\Presentation.cs" />
+    <Compile Include="Entities\DataBaseEntities\Roles.cs" />
+    <Compile Include="Entities\PresentationEntities\PreCreatedPresentation.cs" />
+    <Compile Include="Entities\PresentationEntities\SlideImageParameters.cs" />
+    <Compile Include="Entities\PresentationEntities\SlideInfo.cs" />
+    <Compile Include="Entities\PresentationEntities\SlideTextParameters.cs" />
+    <Compile Include="Entities\DataBaseEntities\User.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryClasses\DBRepository.cs" />
