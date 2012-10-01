@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimPressUnitTests", "SimPressUnitTests\SimPressUnitTests.csproj", "{0548CB69-B06E-4B06-A838-C7D3BB227B93}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8ACE5245-6163-4F96-96EB-D96822572D7E} = {8ACE5245-6163-4F96-96EB-D96822572D7E}
+		{89153B95-D54F-43FC-8A29-6E2020327A3E} = {89153B95-D54F-43FC-8A29-6E2020327A3E}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A3C192C3-6427-4B77-9A39-7B455039040C}"

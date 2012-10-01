@@ -59,12 +59,13 @@
     <Compile Include="Enums\UserEnums\RegistrationState.cs" />
     <Compile Include="Enums\UserEnums\TypeOfAuthentificatedLogin.cs" />
     <Compile Include="PresentationClasses\PresentationBuilder.cs" />
-    <Compile Include="StaticClasses\PasswordActions.cs" />
-    <Compile Include="StaticClasses\UserActions.cs" />
+    <Compile Include="UsefulClasses\PasswordActions.cs" />
+    <Compile Include="UsefulClasses\PresentationActions.cs" />
+    <Compile Include="UsefulClasses\UserActions.cs" />
     <Compile Include="UsersClases\UserAuthentification.cs" />
     <Compile Include="UsersClases\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticClasses\ApplicationSettings.cs" />
+    <Compile Include="Enums\ApplicationSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimPressDomainModel\SimPressDomainModel.csproj">

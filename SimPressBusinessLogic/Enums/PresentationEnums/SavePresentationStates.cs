@@ -10,9 +10,8 @@ namespace SimPressBusinessLogic.Enums.PresentationEnums
         Ok,
         UserNotExist,
         UserCantRules,
+        NullData,
         WrongName,
-        WrongDescription,
-        WrongTags,
         DataBaseError
     }
 }

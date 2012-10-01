@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using SimPressDomainModel.Entities;
 
-namespace SimPressBusinessLogic.StaticClasses
+namespace SimPressBusinessLogic.UsefulClasses
 {
-    public static class PasswordActions
+    public class PasswordActions
     {
         public static string GenerateSalt()
         {

@@ -52,8 +52,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataBaseContextTests.cs" />
+    <Compile Include="UserRegistrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimPressBusinessLogic\SimPressBusinessLogic.csproj">
+      <Project>{89153B95-D54F-43FC-8A29-6E2020327A3E}</Project>
+      <Name>SimPressBusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimPressDomainModel\SimPressDomainModel.csproj">
       <Project>{8ACE5245-6163-4F96-96EB-D96822572D7E}</Project>
       <Name>SimPressDomainModel</Name>

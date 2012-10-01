@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using SimPressBusinessLogic.Enums;
 using SimPressBusinessLogic.StaticClasses;
 using SimPressDomainModel.Entities;
+using SimPressBusinessLogic.UsefulClasses;
 
 namespace SimPressBusinessLogic.UsersActions
 {
@@ -50,20 +51,12 @@ namespace SimPressBusinessLogic.UsersActions
 
         private User GetUserByEmail(string email, string password)
         {
-            using(var repository = ApplicationSettings.GetRepository())
-            {
-                var findedUser = repository.Users.FirstOrDefault(x => x.Email == email);
-                return GetUser(findedUser, password);
-            }
+                return GetUser(new UserActions().GetUserByEmail(email), password);
         }
 
         private User GetUserByLogin(string login, string password)
         {
-            using (var repository = ApplicationSettings.GetRepository())
-            {
-                var findedUser = repository.Users.FirstOrDefault(x => x.Login == login);
-                return GetUser(findedUser, password);
-            }
+                return GetUser(new UserActions().GetUserByLogin(login), password);
         }
 
         private User GetUser(User findedUser,string password)

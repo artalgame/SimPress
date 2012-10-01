@@ -50,7 +50,7 @@
     <Compile Include="EFDbContext\SimPressEFDBContext.cs" />
     <Compile Include="Entities\DataBaseEntities\Comment.cs" />
     <Compile Include="Entities\DataBaseEntities\Like.cs" />
-    <Compile Include="Entities\PreRegistrateUser.cs" />
+    <Compile Include="Entities\UserEntities\PreRegistrateUser.cs" />
     <Compile Include="Entities\DataBaseEntities\Presentation.cs" />
     <Compile Include="Entities\DataBaseEntities\Roles.cs" />
     <Compile Include="Entities\PresentationEntities\PreCreatedPresentation.cs" />

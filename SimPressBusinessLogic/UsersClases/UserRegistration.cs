@@ -8,6 +8,7 @@ using SimPressDomainModel.Interfaces;
 using SimPressBusinessLogic.StaticClasses;
 using SimPressDomainModel.Entities;
 using System.Security.Cryptography;
+using SimPressBusinessLogic.UsefulClasses;
 
 namespace SimPressBusinessLogic
 {
@@ -27,26 +28,22 @@ namespace SimPressBusinessLogic
         {
         }
 
-        public bool IsLoginFree(string login)
+        private bool IsLoginFree(string login)
         {
-            using (IRepository repository = ApplicationSettings.GetRepository())
+            if (new UserActions().IsLoginFree(login) == null)
             {
-                var user = repository.Users.FirstOrDefault(x => x.Login == login);
-                if (user == null)
-                {
-                    return true;
-                }
-                else
-                {
-                    LoginState = LoginStates.Occupied;
-                    return false;
-                }
+                return true;
+            }
+            else
+            {
+                LoginState = LoginStates.Occupied;
+                return false;
             }
         }
 
-        public bool IsLoginIsCorrected(string login)
+        private bool IsLoginIsCorrected(string login)
         {
-            if (Regex.IsMatch(login, ApplicationSettings.LOGIN_REGEX))
+            if (new UserActions().IsLoginIsCorrected(login))
             {
                 return true;
             }
@@ -98,7 +95,7 @@ namespace SimPressBusinessLogic
 
         public bool IsConfirmPasswordMatched(string password, string confirmPassword)
         {
-            if (PasswordActions.PasswordsAreEqual(password,confirmPassword))
+            if (PasswordActions.PasswordsAreEqual(password, confirmPassword))
             {
                 return true;
             }
@@ -127,7 +124,7 @@ namespace SimPressBusinessLogic
         }
         public bool IsEmailCorrected(string email)
         {
-            if(Regex.IsMatch(email,ApplicationSettings.EMAIL_REGEX))
+            if (Regex.IsMatch(email, ApplicationSettings.EMAIL_REGEX))
             {
                 return true;
             }
