@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimPressDomainModel")]
+[assembly: AssemblyTitle("RepositoryInterfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SimPressDomainModel")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCompany("OM-3")]
+[assembly: AssemblyProduct("RepositoryInterfaces")]
+[assembly: AssemblyCopyright("Copyright © OM-3 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8ae90a8f-6c54-4af2-b21c-1e2ef9ada32c")]
+[assembly: Guid("5fc30e8d-4efa-417b-a45a-9c57a99e78ce")]
 
 // Version information for an assembly consists of the following four values:
 //

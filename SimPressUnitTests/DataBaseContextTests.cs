@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
 using System.Linq;
+using Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SimPressDomainModel;
 using SimPressDomainModel.EFDbContext;
-using SimPressDomainModel.RepositoryClasses;
-using SimPressDomainModel.Entities;
 
 namespace SimPressUnitTests
 {
     [TestClass]
     public class DataBaseContextTests
     {
-        readonly string connectionString = @"Data Source=ARTAL-ПК\SQLEXPRESS;Initial Catalog=SimPressDataBase;Integrated Security=True;Pooling=False";
+        private const string ConnectionString = @"Data Source=ARTAL-ПК\SQLEXPRESS;Initial Catalog=SimPressDataBase;Integrated Security=True;Pooling=False";
 
         private SimPressEFDBContext GetDBContext()
         {
-            return new SimPressEFDBContext(connectionString);
+            return new SimPressEFDBContext(ConnectionString);
         }
 
         [TestMethod]
@@ -38,7 +36,7 @@ namespace SimPressUnitTests
                     Info = "This is good user",
                     IsApproved = true,
                     Login = "alkor",
-                    Role = "admin",
+                    Role = Roles.Admin,
                     UserId = Guid.NewGuid(),
                     PasswordHash = "df",
                     PasswordSalt = "dfdf"
@@ -49,7 +47,7 @@ namespace SimPressUnitTests
             {
                 try
                 {
-                    User user = repo.Users.FirstOrDefault<User>(x => x.Login == "alkor");
+                    var user = repo.Users.FirstOrDefault(x => x.Login == "alkor");
                     Assert.IsNotNull(user);
                     Assert.IsTrue(user.IsApproved);
                     Assert.AreEqual(user.Email, "alkor1@yandex.ru");
@@ -77,9 +75,12 @@ namespace SimPressUnitTests
                     repo.SaveChanges();
 
                     User testUser = repo.Users.FirstOrDefault(x => x.UserId == updateUser.UserId);
-                    Assert.AreEqual(testUser.Login, updateUser.Login);
-                    Assert.AreEqual(testUser.Email, updateUser.Email);
-                    Assert.AreEqual(testUser.Info, updateUser.Info);
+                    if (testUser != null)
+                    {
+                        Assert.AreEqual(testUser.Login, updateUser.Login);
+                        Assert.AreEqual(testUser.Email, updateUser.Email);
+                        Assert.AreEqual(testUser.Info, updateUser.Info);
+                    }
                 }
 
             }

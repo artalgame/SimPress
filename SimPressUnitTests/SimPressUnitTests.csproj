@@ -55,6 +55,14 @@
     <Compile Include="UserRegistrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{AB84146E-4CFD-4264-B0B2-9DA029727074}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryInterfaces\RepositoryInterfaces.csproj">
+      <Project>{7CEB33FE-2DFE-45A3-BC00-878647E01CAA}</Project>
+      <Name>RepositoryInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimPressBusinessLogic\SimPressBusinessLogic.csproj">
       <Project>{89153B95-D54F-43FC-8A29-6E2020327A3E}</Project>
       <Name>SimPressBusinessLogic</Name>
