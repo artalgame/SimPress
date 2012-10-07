@@ -113,7 +113,7 @@ namespace SimPressUnitTests
             {
                 if (repo.Users != null)
                 {
-                    User user = repo.Users.ToArray()[0];
+                    var user = repo.Users.ToArray()[0];
                     repo.CreatePresentation(new Presentation { CreateDate = DateTime.Now, Description = "Simple Presentation", Name = "Presentation", User = user, PresentationId = Guid.NewGuid() });
                     repo.SaveChanges();
 

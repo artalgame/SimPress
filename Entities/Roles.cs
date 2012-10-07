@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public enum Roles
+    public enum Roles:byte
     {
         Admin,SimpleUser
     }

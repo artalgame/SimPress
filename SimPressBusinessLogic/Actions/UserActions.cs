@@ -17,10 +17,10 @@ namespace SimPressBusinessLogic.Actions
     {
         public bool IsUserExist(User user)
         {
-            return FindUserById(user.UserId) == null;
+            return GetUserById(user.UserId) == null;
         }
 
-        public User FindUserById(Guid userId)
+        public User GetUserById(Guid userId)
         {
             using(var repo = ApplicationSettings.GetRepository())
             {

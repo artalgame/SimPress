@@ -44,7 +44,7 @@ namespace SimPressBusinessLogic.Actions
                 Name = presentationData.Name,
                 PresentationId = Guid.NewGuid(),
                 Tags = presentationData.Tags,
-                UserId = userId
+                User = new UserActions().GetUserById(userId)
             };
         }
   

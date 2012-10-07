@@ -145,7 +145,7 @@ namespace SimPressDomainModel
             toComment.CreateDate = fromComment.CreateDate;
             toComment.PresentationId = fromComment.PresentationId;
             toComment.Text = fromComment.Text;
-            toComment.UserId = fromComment.UserId;
+            toComment.User.UserId = fromComment.User.UserId;
         }
 
         public void UpdateComment(Comment comment)
@@ -265,7 +265,7 @@ namespace SimPressDomainModel
             }
             toLike.CreateDate = fromLike.CreateDate;
             toLike.PresentationId = fromLike.PresentationId;
-            toLike.UserId = fromLike.UserId;
+            toLike.User.UserId = fromLike.User.UserId;
         }
 
         public void UpdateLike(Like like)
